@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DeeSyn - AI Discord Bot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo-container">
+        <img src="https://images-ext-1.discordapp.net/external/E9pGZP26YQG2Fddq1qoiKvBqvw589iuWgg-wQK0arL0/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/991201741389447270/d908e4c42b09bab7b3e342022a8e770d.png?width=1496&height=1496" alt="DeeSyn Logo" class="logo-img"/>
+        <span class="logo-text animated-text">DeeSyn</span>
+      </div>
+      <ul>
+        <li><a href="#features">Tính năng</a></li>
+        <li><a href="#stats">Thống kê</a></li>
+        <li><a href="#invite">Mời bot</a></li>
+        <li><a href="#support">Hỗ trợ</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h1 class="animated-text">DeeSyn</h1>
+      <p>Bot Discord sử dụng AI để tự động thiết lập, bảo vệ và tối ưu máy chủ của bạn.</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=991201741389447270&permissions=8&integration_type=0&scope=bot" class="btn primary">Mời Bot Ngay</a>
+    </section>
+  </header>
+
+  <main>
+    <section id="features" class="features">
+      <h2>Tính năng nổi bật</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="material-icons-outlined icon">smart_toy</span>
+          <h3>Setup AI</h3>
+          <p>Tự động cấu trúc category, role, channel hợp lý theo từng server.</p>
+        </div>
+        <div class="feature-card">
+          <span class="material-icons-outlined icon">security</span>
+          <h3>Bảo vệ thông minh</h3>
+          <p>Chống spam, raid, và cảnh báo nguy cơ theo hành vi người dùng.</p>
+        </div>
+        <div class="feature-card">
+          <span class="material-icons-outlined icon">insights</span>
+          <h3>Logs & Audit</h3>
+          <p>Theo dõi thay đổi vai trò, kênh và hoạt động người dùng chi tiết.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="features">
+      <h2>📈 Thống kê bot</h2>
+      <canvas id="botChart" width="400" height="200"></canvas>
+    </section>
+
+    <section id="invite" class="cta">
+      <h2>Thêm DeeSyn vào máy chủ của bạn</h2>
+      <a href="https://discord.com/oauth2/authorize?client_id=991201741389447270&permissions=8&integration_type=0&scope=bot" class="btn primary">+ Mời Bot</a>
+    </section>
+
+    <section id="support" class="support">
+      <h2>Hỗ trợ & Cộng đồng</h2>
+      <p>Tham gia server hỗ trợ để được giúp đỡ từ đội ngũ phát triển.</p>
+      <a href="https://discord.gg/dvfyBuMY9s" class="btn secondary">Tham gia Server</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DeeSyn AI-powered Discord Assistant.</p>
+  </footer>
+
+  <script>
+    // Reveal animation for feature cards
+    const cards = document.querySelectorAll('.feature-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // Chart.js config
+    const ctx = document.getElementById('botChart').getContext('2d');
+    const botChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['27/4', '28/4', '29/4', '30/4', '1/5'],
+        datasets: [
+          {
+            label: 'Lệnh đã dùng',
+            data: [2, 5, 12, 25, 60],
+            borderColor: '#a27aff',
+            fill: false,
+            tension: 0.3
+          },
+          {
+            label: 'Số server',
+            data: [1, 3, 5, 9, 13],
+            borderColor: '#7289da',
+            fill: false,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ffffff'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#ffffff' }
+          },
+          y: {
+            ticks: { color: '#ffffff' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
